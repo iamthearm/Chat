@@ -115,6 +115,13 @@ struct MessageView: View {
                         }
                 }
 
+                if !message.user.isCurrentUser && !message.user.name.isEmpty {
+                    Text(verbatim: message.user.name)
+                        .lineLimit(1)
+                        .font(.footnote)
+                        .foregroundStyle(theme.colors.mainCaptionText)
+                }
+
                 bubbleView(message)
             }
 
